@@ -18,7 +18,7 @@ Tools:
 
 ## "Playgrounds"
 
-Attrubutes:
+Attributes:
 - Calendar
 - Todo List
 - Grades 
@@ -35,6 +35,7 @@ Attrubutes:
 ## Calendar
 
 - Having a global calendar for all playgrounds combined
+- Ability to create events and recurring events
 
 ## Todo list - Goal list
 
