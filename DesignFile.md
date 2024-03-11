@@ -18,7 +18,12 @@ Tools:
 
 ## "Playgrounds"
 
-
+Attrubutes:
+- Calendar
+- Todo List
+- Grades 
+- Daily Review
+- Methods?
 
 ## Dashboard
 
