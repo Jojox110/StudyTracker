@@ -18,10 +18,10 @@ Tools:
 
 ## "Playgrounds"
 
-Attrubutes:
+Attributes:
 - Calendar
 - Todo List
-- Grades 
+- Grades
 - Daily Review
 - Methods?
 
