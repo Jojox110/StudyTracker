@@ -1,10 +1,11 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+#a {
+  min-width: 0; 
+  /*
+  Ignore this, i replaced the problematic CSS with this that should theoretically do nothing?
+  There was padding in here which didn't allow us to take up the whole screen
+  */
 }
 
 a,
@@ -30,6 +31,5 @@ a,
   #app {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
   }
 }
