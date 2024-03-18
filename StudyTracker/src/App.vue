@@ -1,22 +1,14 @@
+<script setup>
+import {RouterView} from "vue-router"
+</script>
+
 <template>
   <main>
-    <div v-if="a">{{ a }}</div>
+    <!--This handles the general routing. The TS code behind oruting is in router/index.ts-->
+    <RouterView />
   </main>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      a: null // Initialize a with null
-    };
-  },
-  async created() {
-    // GET request using fetch with set headers
-    const headers = { "Content-Type": "application/json" };
-    await fetch("http://localhost:3000/", { headers })
-      .then(response => response.json())
-      .then(data => this.a = data.message);
-  }
-};
-</script>
+<style scoped>
+
+</style>

@@ -1,35 +1,5 @@
 @import './base.css';
 
-#a {
-  min-width: 0; 
-  /*
-  Ignore this, i replaced the problematic CSS with this that should theoretically do nothing?
-  There was padding in here which didn't allow us to take up the whole screen
-  */
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-}
+/* 
+    I deleted the default styling to avoid issues I was already encountering -Jo
+*/
