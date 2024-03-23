@@ -1,12 +1,9 @@
-import express, { Request, Response } from 'express';
+import getData from '../src/Database/test.database'
+import express, {NextFunction, Request, Response} from 'express'
 
 const app = express();
-const port = 3000;
 
-app.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'Hello World!' });
-});
-
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
+app.get('/', getData);
+app.listen(3000, () => {
+    console.log("Application listening at http://localhost:3000")
+})
