@@ -4,21 +4,36 @@
     </button>
     <div id="menu" v-if="menuVisible">
         <router-view />
-        <button id="menu-items">Playgrounds</button>
+        <button id="menu-items">
+            <RouterLink to="/">Playground</RouterLink>
+        </button>
         <button id="menu-items">
             <RouterLink to="/dashboard">Dashboard</RouterLink>
         </button>
-        <button id="menu-items">Calendar</button>
+        <button id="menu-items">
+            <RouterLink to="/calendar">Calendar</RouterLink>
+        </button>
         <button id="menu-items">Todo List</button>
         <button id="menu-items">Statistics</button>
-        <button id="menu-items">Grades</button>
+        <button id="menu-items">
+            <RouterLink to="/grades">Grades</RouterLink>
+        </button>
         <button id="menu-items">Study Methods</button>
         <button id="menu-items">Daily Review</button>
     </div>
 </template>
 
 <script>
+import { RouterLink, useRoute, useRouter } from 'vue-router'
+let route
+let router
+
 export default {
+    setup() {
+        route = useRoute()
+        router = useRouter()
+    },
+
     data() {
         return {
             a: null, // Initialize a with null
@@ -26,6 +41,8 @@ export default {
         };
     },
     async created() {
+        // router.push('/dashboard')
+        console.log("here")
         // GET request using fetch with set headers
         const headers = { "Content-Type": "application/json" };
         await fetch("http://localhost:3000/", { headers })
