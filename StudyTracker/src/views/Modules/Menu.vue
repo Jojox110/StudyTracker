@@ -1,24 +1,38 @@
 <template>
-    <button id="menu-btn" @click="toggleMenuVisibility">
-        Menu Menu
+    <button class="menu-btn" @click="toggleMenuVisibility">
+        Menu
     </button>
-    <div id="menu" v-if="menuVisible">
+    <div class="menu" v-if="menuVisible">
         <router-view />
-        <button id="menu-items">Playgrounds</button>
-        <button id="menu-items">
+        <button class="menu-items">
+            <RouterLink to="/">Playground</RouterLink>
+        </button>
+        <button class="menu-items">
             <RouterLink to="/dashboard">Dashboard</RouterLink>
         </button>
-        <button id="menu-items">Calendar</button>
-        <button id="menu-items">Todo List</button>
-        <button id="menu-items">Statistics</button>
-        <button id="menu-items">Grades</button>
-        <button id="menu-items">Study Methods</button>
-        <button id="menu-items">Daily Review</button>
+        <button class="menu-items">
+            <RouterLink to="/calendar">Calendar</RouterLink>
+        </button>
+        <button class="menu-items">Todo List</button>
+        <button class="menu-items">Statistics</button>
+        <button class="menu-items">
+            <RouterLink to="/grades">Grades</RouterLink>
+        </button>
+        <button class="menu-items">Study Methods</button>
+        <button class="menu-items">Daily Review</button>
     </div>
 </template>
-
 <script>
+import { RouterLink, useRoute, useRouter } from 'vue-router'
+let route
+let router
+
 export default {
+    setup() {
+        route = useRoute()
+        router = useRouter()
+    },
+
     data() {
         return {
             a: null, // Initialize a with null
@@ -26,6 +40,8 @@ export default {
         };
     },
     async created() {
+        // router.push('/dashboard')
+        console.log("here")
         // GET request using fetch with set headers
         const headers = { "Content-Type": "application/json" };
         await fetch("http://localhost:3000/", { headers })
@@ -41,56 +57,26 @@ export default {
 };
 </script>
 
-<style scoped>
-#menu {
-}
-
-#menu {
+<style>
+.menu {
+    grid-row: 2 / 4;
     grid-column: 1;
-    grid-row: 2;
 
-    background-color: white;
-    color: black;
-    display: grid;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-
-    justify-content: space-evenly;
-    text-align: center;
+    display: flex;
     flex-direction: column;
-}
-
-#menu-items {
-    display: flex;
-    height: 100%;
-    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
     background-color: white;
-    color: black;
+}
+
+.menu-btn {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.menu-items {
     border: 0;
-    align-items: center;
-    justify-content: center;
-}
-
-#profile {
-    grid-area: profile;
-    background-color: green;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-#homepage {
-    grid-area: homepage;
-    background-color: red;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    background-color: white;
 }
 </style>
