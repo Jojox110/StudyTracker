@@ -1,9 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // @ts-ignore
 import Playgrounds from '@/views/Playgrounds.vue'
+// @ts-ignore
 import Dashboard from '@/views/Dashboard.vue'
+// @ts-ignore
 import Grades from '@/views/Grades.vue'
+// @ts-ignore
 import Calendar from '@/views/Calendar.vue'
+// @ts-ignore
 import SignUp from '@/views/Modules/SignUp.vue'
 
 const router = createRouter({

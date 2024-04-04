@@ -13,18 +13,6 @@ store.changeLoginStatus()
 
 <template>
   <main>
-    <div class="grid">
-      <Menu class="menu" />
-      <Login class="login" />
-       <button @click="store.changeLoginStatus">testing</button>
-    </div>
+    <section class="text-xl text-purple-500 grid h-full w-full justify-center items-center"> Testing testing testing </section>
   </main>
 </template>
-
-<style>
-.grid {
-  display: grid;
-  grid-template-columns: 0.75fr 10fr 0.5fr;
-  grid-template-rows: 1.5fr 1fr 10fr;
-}
-</style>
