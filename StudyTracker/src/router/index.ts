@@ -5,6 +5,7 @@ import Dashboard from '@/views/Dashboard.vue'
 import Grades from '@/views/Grades.vue'
 import Calendar from '@/views/Calendar.vue'
 import SignUp from '@/views/Modules/SignUp.vue'
+import Menu from "@/views/Modules/Menu.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: SignUp
+    },
+    {
+      path: '/menu',
+      name: 'menu',
+      component: Menu
     }
   ]
 })

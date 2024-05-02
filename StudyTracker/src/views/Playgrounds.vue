@@ -20,11 +20,3 @@ store.changeLoginStatus()
     </div>
   </main>
 </template>
-
-<style>
-.grid {
-  display: grid;
-  grid-template-columns: 0.75fr 10fr 0.5fr;
-  grid-template-rows: 1.5fr 1fr 10fr;
-}
-</style>
