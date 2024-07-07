@@ -6,6 +6,7 @@ const pinia = createPinia()
 import App from '../src/App.vue'    
 import router from './router'
 import '../index.css'
+import '@/assets/main.css'
 
 const app = createApp(App)
 

@@ -9,6 +9,10 @@ import Grades from '@/views/Grades.vue'
 import Calendar from '@/views/Calendar.vue'
 // @ts-ignore
 import SignUp from '@/views/Modules/SignUp.vue'
+// @ts-ignore
+import Menu from '@/views/Menu/Menu.vue'
+// @ts-ignore
+import Playground from "@/views/Playgrounds/Playground.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,7 +20,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: Playgrounds
+      component: Playground
     },
     {
       path: '/dashboard',

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // @ts-ignore
-import Menu from "@/views/Modules/Menu.vue";
+import Menu from "@/views/Menu/Menu.vue";
 // @ts-ignore
 import Login from "@/views/Modules/Login.vue";
 import Dashboard from "@/views/Modules/Dashboard.vue";
