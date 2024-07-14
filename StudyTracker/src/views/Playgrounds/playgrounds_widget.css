@@ -5,5 +5,5 @@
 /* Add classes for md, lg, xl and/or 2xl for each */
 
 .sm-playground-widget-layout {
-    @apply grid-cols-1 grid-rows-2 items-center justify-center
+    @apply content-center text-center h-1/4 grid-rows-2 grid items-center border-2 m-5;
 }

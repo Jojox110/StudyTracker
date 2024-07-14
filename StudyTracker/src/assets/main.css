@@ -3,3 +3,7 @@
 /* 
     I deleted the default styling to avoid issues I was already encountering -Jo
 */
+
+.icon-color-theme {
+    @apply text-black dark:text-white;
+}

@@ -10,7 +10,7 @@
 }
 
 .sm-playgrounds-header-close-button {
-    @apply grid-cols-1 col-span-2 w-10 h-10;
+    @apply grid-cols-1 col-span-2 w-2/5 h-10;
 }
 
 .sm-playgrounds-header-title {
@@ -19,5 +19,10 @@
 
 /* PLAYGROUNDS-WIDGET */
 .sm-playgrounds-widget {
-    @apply grid-cols-1 auto-rows-auto justify-center m-8 border-2;
+    @apply grid-cols-1 auto-rows-auto grid-rows-2 row-span-8 scroll-auto;
+}
+
+/* PLAYGROUNDS-LAYOUT */
+.sm-playgrounds-layout {
+    @apply grid-cols-1 grid-rows-9;
 }

@@ -25,7 +25,7 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: Dashboard
+      component: Menu
     },
     {
       path: '/grades',
