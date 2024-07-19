@@ -1,7 +1,7 @@
 <template>
   <section class="sm: sm-playground-widget-layout">
-    <p class="grid-rows-1">{{ playgroundName }}</p>
-    <p class="grid-rows-2">{{ lastModified }}</p>
+    <p class="grid-rows-1">Playground name: {{ playgroundName }}</p>
+    <p class="grid-rows-2">Last modified: {{ lastModified }}</p>
   </section>
 </template>
 

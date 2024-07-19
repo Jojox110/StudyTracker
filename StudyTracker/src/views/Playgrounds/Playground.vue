@@ -3,38 +3,49 @@
     <!-- Header -->
     <section class="grid h-full w-full sm: sm-playgrounds-header">
       <button class="sm: sm-playgrounds-header-close-button">
-<!--        <img :src="x" alt="menu button">-->
-          <ChevronRightIcon alt="menu button" class="icon-color-theme"/>
+        <!--        <img :src="x" alt="menu button">-->
+        <Bars3Icon alt="menu button" class="icon-color-theme" />
       </button>
       <p class="sm: sm-playgrounds-header-title">Playgrounds</p>
     </section>
 
     <!-- List of playgrounds  -->
     <section class="sm-playgrounds-widget">
-      <Playground_widget playground-name="one" last-modified="today"/>
-      <Playground_widget playground-name="two" last-modified="today"/>
-      <Playground_widget playground-name="three" last-modified="today"/>
-      <Playground_widget playground-name="four" last-modified="today"/>
-      <Playground_widget playground-name="five" last-modified="today"/>
-      <Playground_widget playground-name="six" last-modified="today"/>
+      <div
+          v-for="(item, index) in listOfPlaygrounds"
+          :key="index">
+          <Playground_widget :playground-name="item.playground_name" :last-modified="formatDate(item.updated_at)" />
+      </div>
     </section>
   </section>
 </template>
 
 <script setup lang="ts">
-import "./playgrounds.css"
-import Playground_widget from "@/views/Playgrounds/Playground_widget.vue";
+import {type Ref, ref} from 'vue'
 
-import { useIconBasedOffColorScheme } from "@/utils/themeUtils";
+import './playgrounds.css'
+import Playground_widget from '@/views/Playgrounds/Playground_widget.vue'
 
-import menu_icon_white from "../../assets/images/menu-icon-white.png"
-import menu_icon_black from "../../assets/images/menu-icon-black.png"
+import { Bars3Icon } from '@heroicons/vue/24/solid'
 
-import { ChevronRightIcon } from '@heroicons/vue/24/solid'
+interface Playground {
+    created_by: number;
+    playground_id: number;
+    playground_name: string;
+    created_at: string;
+    updated_at: string;
+}
 
-let menuIcon = useIconBasedOffColorScheme({
-    white_mode_icon_path: menu_icon_white,
-    black_mode_icon_path: menu_icon_black,
-})
+const listOfPlaygrounds: Ref<Playground[]> = ref([])
 
+async function getPlaygrounds() {
+    const res = await fetch('http://localhost:3000/playground/1')
+    listOfPlaygrounds.value = await res.json()
+}
+
+function formatDate(dateString: string): string {
+    return new Date(dateString).toLocaleDateString('en-CA'); // en-CA format gives yyyy-mm-dd
+}
+
+getPlaygrounds()
 </script>

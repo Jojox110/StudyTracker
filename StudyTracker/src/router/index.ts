@@ -13,6 +13,8 @@ import SignUp from '@/views/Modules/SignUp.vue'
 import Menu from '@/views/Menu/Menu.vue'
 // @ts-ignore
 import Playground from "@/views/Playgrounds/Playground.vue";
+// @ts-ignore
+import LandingPage from "@/views/LandingPage/LandingPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,7 +32,7 @@ const router = createRouter({
     {
       path: '/grades',
       name: 'grades',
-      component: Grades
+      component: LandingPage
     },
     {
       path: '/calendar',

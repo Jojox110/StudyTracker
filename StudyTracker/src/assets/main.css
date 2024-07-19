@@ -7,3 +7,9 @@
 .icon-color-theme {
     @apply text-black dark:text-white;
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
