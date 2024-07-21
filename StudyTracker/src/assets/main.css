@@ -8,6 +8,14 @@
     @apply text-black dark:text-white;
 }
 
+.textarea-color-theme {
+    @apply placeholder-black border-2 dark:bg-gray-600 dark:placeholder-white dark:text-white p-2;
+}
+
+.button-color-theme {
+    @apply border-2 bg-white text-black dark:bg-gray-600 dark:text-white;
+}
+
 html, body {
     margin: 0;
     padding: 0;

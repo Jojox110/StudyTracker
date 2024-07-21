@@ -6,7 +6,7 @@
 
 /* LANDING PAGE LAYOUT */
 .sm-landing-page-layout {
-    @apply grid grid-cols-5 grid-rows-8 text-center items-center h-full w-full overflow-y-hidden;
+    @apply grid grid-cols-5 grid-rows-8 text-center items-center h-full w-full;
 }
 
 /* LANDING PAGE COMPONENTS */

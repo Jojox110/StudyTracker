@@ -8,7 +8,9 @@ import Grades from '@/views/Grades.vue'
 // @ts-ignore
 import Calendar from '@/views/Calendar.vue'
 // @ts-ignore
-import SignUp from '@/views/Modules/SignUp.vue'
+import SignUpPage from '@/views/SignUpPage/SignUpPage.vue'
+// @ts-ignore
+import LoginPage from "@/views/LoginPage/LoginPage.vue";
 // @ts-ignore
 import Menu from '@/views/Menu/Menu.vue'
 // @ts-ignore
@@ -25,6 +27,16 @@ const router = createRouter({
       component: Playground
     },
     {
+      path: '/login',
+      name: 'login',
+      component: LoginPage
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: SignUpPage
+    },
+    {
       path: '/dashboard',
       name: 'dashboard',
       component: Menu
@@ -39,11 +51,6 @@ const router = createRouter({
       name: 'calendar',
       component: Calendar
     },
-    {
-      path: '/signup',
-      name: 'signup',
-      component: SignUp
-    }
   ]
 })
 

@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import "./playgrounds_widget.css"
+import "./playgroundsWidget.css"
 
 import { defineProps } from "vue";
 

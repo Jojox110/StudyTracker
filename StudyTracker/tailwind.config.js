@@ -5,7 +5,11 @@ export default {
     './src/views/modules/**/*.vue', // Matches all Vue files in src/views/modules and any subdirectories
   ],
   theme: {
-    extend: {},
+    extend: {
+      borderColor: {
+        DEFAULT: 'var(--color-border)'
+      }
+    },
   },
   plugins: [],
 }

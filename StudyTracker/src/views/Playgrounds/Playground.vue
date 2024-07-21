@@ -24,7 +24,7 @@
 import {type Ref, ref} from 'vue'
 
 import './playgrounds.css'
-import Playground_widget from '@/views/Playgrounds/Playground_widget.vue'
+import Playground_widget from '@/views/Playgrounds/PlaygroundWidget.vue'
 
 import { Bars3Icon } from '@heroicons/vue/24/solid'
 

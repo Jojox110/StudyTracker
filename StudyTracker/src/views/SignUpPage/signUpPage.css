@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add classes for md, lg, xl and/or 2xl for each */
+
+/* SIGNUP PAGE LAYOUT */
+.sm-signup-page-layout {
+    @apply grid grid-cols-8 grid-rows-8 text-center items-center h-full w-full;
+}
+
+/* SIGNUP PAGE TITLE */
+.sm-signup-page-title {
+    @apply col-start-1 col-span-8 row-start-1 font-bold text-3xl;
+}
+
+/* SIGNUP PAGE FIRST NAME */
+.sm-signup-page-first-name {
+    @apply col-start-2 col-span-6 row-start-2;
+}
+
+/* SIGNUP PAGE LAST NAME */
+.sm-signup-page-last-name {
+    @apply col-start-2 col-span-6 row-start-3;
+}
+
+/* SIGNUP PAGE EMAIL */
+.sm-signup-page-email {
+    @apply col-start-2 col-span-6 row-start-4;
+}
+
+/* SIGNUP PAGE PASSWORD */
+.sm-signup-page-password {
+    @apply col-start-2 col-span-6 row-start-5;
+}
+
+/* SIGN UP PAGE CONFIRM PASSWORD */
+.sm-signup-page-confirm-password {
+    @apply col-start-2 col-span-6 row-start-6;
+}
+
+/* SIGNUP PAGE SIGNUP BUTTON */
+.sm-signup-page-signup-button {
+    @apply col-start-4 col-span-2 row-start-7;
+}
