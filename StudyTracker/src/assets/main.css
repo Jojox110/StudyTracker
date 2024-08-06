@@ -8,7 +8,7 @@
     @apply text-black dark:text-white;
 }
 
-.textarea-color-theme {
+.input-color-theme {
     @apply placeholder-black border-2 dark:bg-gray-600 dark:placeholder-white dark:text-white p-2;
 }
 
@@ -16,7 +16,8 @@
     @apply border-2 bg-white text-black dark:bg-gray-600 dark:text-white;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     overflow: hidden;

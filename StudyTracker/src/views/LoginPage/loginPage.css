@@ -4,7 +4,6 @@
 
 /* Add classes for md, lg, xl and/or 2xl for each */
 
-
 /* LOGIN PAGE LAYOUT */
 .sm-login-page-layout {
     @apply grid grid-cols-8 grid-rows-8 text-center items-center h-full w-full;
