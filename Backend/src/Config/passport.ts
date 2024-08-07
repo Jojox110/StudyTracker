@@ -1,4 +1,3 @@
-// src/config/passport.ts
 import bcrypt from 'bcrypt';
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
@@ -9,36 +8,39 @@ passport.use(new LocalStrategy({
     passwordField: 'password',
 }, async (email: string, password: string, done: Function): Promise<any> => {
     try {
-        console.log("checkpoint")
-        const user: User | null = await User.findOne({ where: { email: email } });
+        console.log('Checkpoint: Starting authentication');
+        const user: User | null = await User.findOne({where: {email: email}});
         if (!user) {
-            return done(null, false, { message: 'Incorrect username or password' });
+            console.log('Checkpoint: User not found');
+            return done(null, false, {message: 'Incorrect username or password'});
         }
 
         const passwordMatch: boolean = await bcrypt.compare(password, user.password);
-        console.log("HERE");
-        console.log("password: " + password);
-        console.log("user.password: " + user.password);
+        console.log('Checkpoint: Password match:', passwordMatch);
         if (!passwordMatch) {
-            return done(null, false, { message: 'Incorrect password' });
+            console.log('Checkpoint: Incorrect password');
+            console.log(password)
+            console.log(user.password)
+            return done(null, false, {message: 'Incorrect password'});
         }
 
+        console.log('Checkpoint: Authentication successful');
         return done(null, user);
     } catch (err) {
+        console.error('Checkpoint: Error during authentication:', err);
         return done(err);
     }
 }));
 
-// @ts-ignore
-passport.serializeUser((user: User, done: Function) => {
+passport.serializeUser((user: any, cb: Function): void => {
     process.nextTick(() => {
-        done(null, { id: user.user_id, email: user.email });
+        cb(null, { id: user.user_id, email: user.email });
     });
 });
 
-passport.deserializeUser((user: User, done: Function) => {
-    process.nextTick(() => {
-        done(null, user);
+passport.deserializeUser(async (user: any, cb: Function): Promise<void> => {
+    process.nextTick(function() {
+        return cb(null, user);
     });
 });
 
