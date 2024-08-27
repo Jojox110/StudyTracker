@@ -1,10 +1,10 @@
 <template>
-    <Menu />
-    <main>
-        <div>Calendar</div>
+    <!-- <Menu /> -->
+    <main class="max-w-2xl mx-auto py-16">
+        <index class="w-full" />
     </main>
 </template>
 
-<script setup>
-import Menu from "@/views/Menu/Menu.vue";
+<script setup lang="ts">
+import index from "./Calendar/index.vue"
 </script>
