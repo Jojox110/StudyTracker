@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add classes for md, lg, xl and/or 2xl for each */
+
+.sm-playground-widget-layout {
+    @apply content-center text-center grid-rows-2 grid items-center border-2 m-5 h-48 overflow-scroll;
+}

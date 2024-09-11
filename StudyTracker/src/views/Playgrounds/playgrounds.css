@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add classes for md, lg, xl and/or 2xl for each */
+
+/* PLAYGROUNDS-HEADER */
+.sm-playgrounds-header {
+    @apply grid-cols-7 grid-rows-1 row-start-1 row-span-1 col-start-1 col-span-1 text-center items-center justify-items-center;
+}
+
+.sm-playgrounds-header-close-button {
+    @apply grid-cols-1 col-span-2 w-2/5 h-10;
+}
+
+.sm-playgrounds-header-title {
+    @apply grid-cols-3 col-span-4 text-4xl font-bold;
+}
+
+/* PLAYGROUNDS-WIDGET */
+.sm-playgrounds-widget {
+    @apply grid-cols-1 auto-rows-auto grid-rows-2 row-span-8 overflow-scroll  w-full justify-center;
+}
+
+/* PLAYGROUNDS-LAYOUT */
+.sm-playgrounds-layout {
+    @apply grid-cols-1 grid-rows-9 justify-items-center;
+}
+
+/* CREATE-PLAYGROUND */
+.sm-playgrounds-create-playground-container {
+    @apply fixed top-1/4 z-20;
+    background-color: var(--color-background)
+}
+
+.sm-playgrounds-create-playground-button {
+    @apply col-start-1 row-start-2 row-span-1 w-1/2 border-2;
+}
