@@ -4,12 +4,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // @ts-ignore
-// const sequelize: Sequelize = new Sequelize(process.env.DB, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-//     host: process.env.DB_HOST,
-//     dialect: 'postgres',
-//     timezone: '-03:00'
-// });
-
 const sequelize: Sequelize = new Sequelize(process.env.DB_CONN_STRING)
 
 
@@ -21,6 +15,7 @@ interface UserAttributes {
     user_id: number;
 }
 
+export interface FrontendUserCreationAttributes  extends Optional<UserAttributes, 'password'>{}
 export interface UserCreationAttributes extends Optional<UserAttributes, 'user_id'>{}
 
 export class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
@@ -66,12 +61,8 @@ User.init(
     }
 )
 
-export async function getUserInfoAfterLogin(email: string): Promise<User | null> {
-    const userInfo: User | null = await User.findOne({where: {email: email}})
-    if (userInfo == null) {
-        return null;
-    }
-    return userInfo;
+export async function getUserInfoByID(id: string): Promise<User | null> {
+    return await User.findOne({where: {user_id: id}})
 }
 
 export async function getAllUsers(): Promise<User[]> {
@@ -85,10 +76,4 @@ export async function createUser(user: UserCreationAttributes): Promise<void> {
         email: user.email,
         password: user.password,
     })
-}
-
-export async function isEmailInUse(email: string): Promise<boolean> {
-    const result: User | null = await User.findOne({where: {email: email}})
-    console.log("Checkpoint two")
-    return result != null;
 }

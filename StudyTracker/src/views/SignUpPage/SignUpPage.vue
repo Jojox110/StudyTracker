@@ -38,8 +38,11 @@
 <script setup lang="ts">
 import './signUpPage.css';
 import { ref } from 'vue';
+import { navigateToPlaygrounds } from '@/router/index.router';
+import type { user } from '@/stores/user.store';
+import { useUserStore } from '@/stores/user.store';
 
-// TODO Implement password confirmation with password and confirmPassword
+const userStore = useUserStore();
 
 let first_name = ref('');
 let last_name = ref('');
@@ -78,34 +81,15 @@ const handleSubmit = async (): Promise<void> => {
         credentials: 'include'
     });
 
-    if (response.status == 201) {
-        console.log('Signup successful');
-    } else if (response.status == 500) {
+    if (response.status == 500) {
         console.log('Signup unsuccessful');
+        alert('Something went wrong during the signup');
+        return;
     }
 
-    // const isEmailInUse = await fetch(`http://localhost:3000/signup/isEmailInUse/${email.value}`);
-    // const isEmailInUseJSON = await isEmailInUse.json();
-    // if (isEmailInUseJSON) {
-    //     alert('This email is already in use');
-    //     return;
-    // }
-    //
-    // const response = await fetch('http://localhost:3000/signup/createUser', {
-    //     method: 'PUT',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({
-    //         email: email.value,
-    //         first_name: first_name.value,
-    //         last_name: last_name.value,
-    //         password: password.value
-    //     })
-    // });
-    // console.log('HERE');
-    // if (response.status === 400) {
-    //     alert('There is an error in the provided data; bad request');
-    // } else if (response.status === 500) {
-    //     alert('There was an internal server error');
-    // }
+    const responseJson = await response.json();
+    const user = responseJson['user'];
+    userStore.setUserId(user.user_id);
+    navigateToPlaygrounds();
 };
 </script>

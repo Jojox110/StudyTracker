@@ -1,19 +1,11 @@
-import {Sequelize, Model, DataTypes} from 'sequelize';
+import {DataTypes, Model, Sequelize} from 'sequelize';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-console.log(process.env.DB)
-console.log(process.env.DB_USERNAME)
-console.log(process.env.DB_PASSWORD)
-console.log(process.env.DB_HOST)
-
 // @ts-ignore
-const sequelize: Sequelize = new Sequelize(process.env.DB, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-    host: process.env.DB_HOST,
-    dialect: 'postgres',
-    timezone: '-03:00'
-});
+const sequelize: Sequelize = new Sequelize(process.env.DB_CONN_STRING)
+
 
 interface PlaygroundAttributes {
     created_by: number;
@@ -56,19 +48,25 @@ Playground.init(
     }
 )
 
-async function createPlayground(): Promise<void> {
-    await Playground.create({
-        created_by: 1,
-        playground_name: "test-five",
-    })
+export async function createPlayground(createdBy: number, playgroundName: string): Promise<boolean> {
+    // A constraint is implemented in the DB to prevent a user from creating more than one playground with the same name
+    // Combinations of created_by and playground_name must be unique in the db
+    try {
+        await Playground.create({
+            created_by: createdBy,
+            playground_name: playgroundName,
+        })
+        return true;
+    }
+    catch (error) {
+        return false;
+    }
 }
 
-export async function getPlaygroundData(createdBy: string): Promise<Playground[]> {
-    const playgrounds: Playground[] = await Playground.findAll({
+export async function getAllUserPlaygrounds(createdBy: string): Promise<Playground[]> {
+    return await Playground.findAll({
         where: {
             created_by: createdBy,
         },
     });
-    console.log(playgrounds)
-    return playgrounds
 }

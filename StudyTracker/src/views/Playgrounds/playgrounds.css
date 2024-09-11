@@ -19,10 +19,20 @@
 
 /* PLAYGROUNDS-WIDGET */
 .sm-playgrounds-widget {
-    @apply grid-cols-1 auto-rows-auto grid-rows-2 row-span-8 scroll-auto;
+    @apply grid-cols-1 auto-rows-auto grid-rows-2 row-span-8 overflow-scroll  w-full justify-center;
 }
 
 /* PLAYGROUNDS-LAYOUT */
 .sm-playgrounds-layout {
-    @apply grid-cols-1 grid-rows-9;
+    @apply grid-cols-1 grid-rows-9 justify-items-center;
+}
+
+/* CREATE-PLAYGROUND */
+.sm-playgrounds-create-playground-container {
+    @apply fixed top-1/4 z-20;
+    background-color: var(--color-background)
+}
+
+.sm-playgrounds-create-playground-button {
+    @apply col-start-1 row-start-2 row-span-1 w-1/2 border-2;
 }

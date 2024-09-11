@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 const pinia = createPinia();
+import { useUserStore } from '@/stores/user.store';
 
 // @ts-ignore
 import App from '../src/App.vue';

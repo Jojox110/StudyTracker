@@ -53,3 +53,8 @@
 .sm-menu-user-options {
     @apply flex flex-row justify-between gap-2;
 }
+
+/* MENU-USER-LOGOUT */
+.sm-menu-user-logout {
+    @apply p-2;
+}

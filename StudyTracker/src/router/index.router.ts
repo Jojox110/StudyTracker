@@ -1,22 +1,21 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, type Router } from 'vue-router';
 // @ts-ignore
 import SignUpPage from '@/views/SignUpPage/SignUpPage.vue';
 // @ts-ignore
 import LoginPage from '@/views/LoginPage/LoginPage.vue';
 // @ts-ignore
-import Menu from '@/views/Menu/Menu.vue';
-// @ts-ignore
 import Playground from '@/views/Playgrounds/Playground.vue';
 // @ts-ignore
 import LandingPage from '@/views/LandingPage/LandingPage.vue';
+// @ts-ignore
 
-export const router = createRouter({
+export const router: Router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
-            name: 'home',
-            component: Playground
+            name: 'landingPage',
+            component: LandingPage
         },
         {
             path: '/login',
@@ -29,18 +28,25 @@ export const router = createRouter({
             component: SignUpPage
         },
         {
-            path: '/dashboard',
-            name: 'dashboard',
-            component: Menu
-        },
-        {
-            path: '/grades',
-            name: 'grades',
-            component: LandingPage
+            path: '/playground',
+            name: 'playground',
+            component: Playground
         }
     ]
 });
 
 export function navigateToPlaygrounds(): void {
+    router.push('/playground');
+}
+
+export function navigateToLogin(): void {
+    router.push('/login');
+}
+
+export function navigateToSignUp(): void {
+    router.push('/signup');
+}
+
+export function navigateToLandingPage(): void {
     router.push('/');
 }

@@ -19,23 +19,21 @@
 
 <script setup lang="ts">
 import './loginPage.css';
-import { useUserStore, areUserStateMembersFilled } from '@/stores/login.store';
-import type { user } from '@/stores/login.store';
 import { ref } from 'vue';
 import { navigateToPlaygrounds } from '@/router/index.router';
+import { useUserStore } from '@/stores/user.store';
+
+const userStore = useUserStore();
+const userId = userStore.getUserId();
 
 let email = ref('');
 let password = ref('');
-
-// const userStore = useUserStore();
 
 const handleSubmit = async (): Promise<void> => {
     if (!email.value || !password.value) {
         alert('Please fill out all the fields');
         return;
     }
-    console.log(email.value);
-    console.log(password.value);
     const response = await fetch('http://localhost:3000/auth/login', {
         method: 'POST',
         headers: {
@@ -49,29 +47,28 @@ const handleSubmit = async (): Promise<void> => {
     });
 
     if (response.status == 401) {
-        console.log('Error in authentication');
+        alert('Error in authentication');
+        return;
     }
-    if (response.status == 200) {
-        console.log('authentication success');
-    }
-    //
-    // if (response.ok) {
-    //     console.log('HERE');
-    //     const user = await response.json();
-    //     console.log(user);
-    //     // userStore.setUserInfo(user);
-    // }
 
-    // let user = await fetch(`http://localhost:3000/login/userInfo/${email.value}`);
-    // user = await user.json();
-    //
-    // userStore.setUserInfo(user);
-    // console.log('userStore.printUserInfo');
-    // userStore.printUserInfo();
-    //
-    // email.value = '';
-    // password.value = '';
-    //
-    // navigateToPlaygrounds();
+    const user_response = await fetch(`http://localhost:3000/user/userInfo/${userId}`, {
+        credentials: 'include'
+    });
+
+    if (user_response.status == 401) {
+        alert('You are not authenticated');
+        return;
+    }
+
+    if (user_response.status == 400) {
+        alert('A user with that email was not found');
+        return;
+    }
+
+    let user = await user_response.json();
+    user = user['user'];
+    userStore.setUserId(user.user_id);
+
+    navigateToPlaygrounds();
 };
 </script>
